@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "freight_should_be_kept_a_secret"
+    set :session_secret, "top_secret_freight"
   end
 
 
