@@ -11,12 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323211043) do
+ActiveRecord::Schema.define(version: 20180324054456) do
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
+  create_table "carriers", force: :cascade do |t|
     t.string "password_digest"
+    t.string "username"
+    t.string "company_name"
+    t.string "email"
+  end
+
+  create_table "freight", force: :cascade do |t|
+    t.string  "consignee"
+    t.integer "pallet_count"
+    t.integer "load_weight"
+    t.integer "pickup_date"
+    t.integer "delivery_date"
+    t.string  "pickup_location"
+    t.string  "delivery_location"
+    t.integer "carrier_id"
   end
 
 end

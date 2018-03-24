@@ -17,7 +17,7 @@ gem 'bcrypt'
 gem "tux"
 gem 'rest-client'
 gem 'json'
-gem 'sinatra-flash'
+gem "rack-flash3"
 
 group :test do
   gem 'rspec'
