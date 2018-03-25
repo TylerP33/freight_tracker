@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324055807) do
+ActiveRecord::Schema.define(version: 20180325043947) do
 
   create_table "carriers", force: :cascade do |t|
     t.string "password_digest"
@@ -20,15 +20,11 @@ ActiveRecord::Schema.define(version: 20180324055807) do
     t.string "email"
   end
 
-  create_table "deliveries", force: :cascade do |t|
-    t.string  "consignee"
+  create_table "loads", force: :cascade do |t|
     t.integer "pallet_count"
-    t.integer "load_weight"
-    t.integer "pickup_date"
-    t.integer "delivery_date"
-    t.string  "pickup_location"
-    t.string  "delivery_location"
-    t.integer "carrier_id"
+    t.integer "weight"
+    t.string  "description"
+    t.boolean "haz_mat"
   end
 
 end
