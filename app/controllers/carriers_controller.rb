@@ -7,7 +7,7 @@ class CarriersController < ApplicationController
         if !logged_in?
             erb :"users/signup"
         else
-            redirect "/freight"
+            redirect "/loads"
         end
     end
 	

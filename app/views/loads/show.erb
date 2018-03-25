@@ -1,0 +1,8 @@
+<h2>Currently, these are all the booked loads we are tracking </h2>
+
+<% @loads.each do |load| %>
+	<h1>Pallet Count:<%= load.pallet_count %></h1>
+	<h1>Weight (lbs):<%= load.weight %></h1>
+	<h1>Hazardous Materials?: <%= load.haz_mat %></h1>
+	<h1>Load Description: <%= load.description %></h1>
+<% end %>
