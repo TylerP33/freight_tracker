@@ -1,8 +1,13 @@
-<h2>Currently, these are all the booked loads we are tracking </h2>
+<h2>To add a new load, click this <a href="/loads/new">link</a><br><br></h2>
 
 <% @loads.each do |load| %>
-	<h1>Pallet Count:<%= load.pallet_count %></h1>
-	<h1>Weight (lbs):<%= load.weight %></h1>
-	<h1>Hazardous Materials?: <%= load.haz_mat %></h1>
-	<h1>Load Description: <%= load.description %></h1>
+<h2> Load Numer: <%= load.id %> </h2>
+<br>
+    Pallet Count: <%= load.pallet_count %><br>
+    Load Weight: <%= load.weight %><br>
+    Description: <%= load.description %><br>
+    Hazardous Materials?: <%= load.haz_mat %><br>
+<br>
+
+<h3>To see more information on each route, click <a href="/routes">here</a></h3><br><br>
 <% end %>
