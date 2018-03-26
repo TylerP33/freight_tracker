@@ -7,4 +7,5 @@ end
 use Rack::MethodOverride
 use CarriersController
 use LoadsController
+use RoutesController
 run ApplicationController
