@@ -48,7 +48,7 @@ class CarriersController < ApplicationController
       		redirect '/login'
     	else
       		session.clear
-      		redirect '/home'
+      		redirect '/'
    	 end
   end
 end

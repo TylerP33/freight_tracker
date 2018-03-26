@@ -1,5 +1,4 @@
-<h2>To add a new load, click this <a href="/loads/new">link</a><br><br></h2>
-
+<h1>Welcome <%= @carrier.username %>, here are all your saved loads! </h1><br>
 <% @loads.each do |load| %>
 <h2> Load Numer: <%= load.id %> </h2>
 <br>
@@ -11,3 +10,5 @@
 
 <h3>To see more information on each route, click <a href="/routes">here</a></h3><br><br>
 <% end %>
+
+

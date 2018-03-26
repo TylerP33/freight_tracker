@@ -2,7 +2,8 @@ class LoadsController < ApplicationController
 
 	get "/loads" do
 		redirect_if_not_logged_in
-		@loads = Load.all 
+		@loads = Load.all
+		@carrier = current_user 
 		erb :"/loads/show"
 	end
 
@@ -22,8 +23,6 @@ class LoadsController < ApplicationController
 			redirect '/loads'
 		end
 	end
-
-
 end 
 
 
