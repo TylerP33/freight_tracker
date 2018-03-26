@@ -50,6 +50,11 @@ footer {background: #aaa;color:white;}
 <nav class="nav">
 <ul>
   <li><a href="/">Home Page</a></li><br>
+<% if logged_in? %>
+  <li><a href="/loads/new">Add a new load</a></li><br>
+  <li><a href="/routes/new">Add a new route</a></li><br>
+  <li><a href="/logout">Logout</a></li><br>
+<% end %>
   <div style="text-align:center"><%= yield %></div>
 </ul>
 </nav>
