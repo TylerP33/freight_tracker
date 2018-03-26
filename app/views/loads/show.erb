@@ -1,14 +1,11 @@
-<h1>Welcome <%= @carrier.username %>, here are all your saved loads! </h1><br>
-<% @loads.each do |load| %>
-<h2> Load Numer: <%= load.id %> </h2>
+<h1>Welcome <%= @carrier.username %>, here are your active loads!</h1>
 <br>
-    Pallet Count: <%= load.pallet_count %><br>
-    Load Weight: <%= load.weight %><br>
-    Description: <%= load.description %><br>
-    Hazardous Materials?: <%= load.haz_mat %><br>
+<% @carrier.loads.each do |load| %>
+<h2>Pallet Count: <%= load.pallet_count %><br></h2>
+<h2>Weight: <%= load.weight %><br></h2>
+<h2>Description: <%= load.description %><br></h2>
+<h2>Hazardous Materials?: <%= load.haz_mat %><br></h2>
 <br>
-
-<h3>To see more information on each route, click <a href="/routes">here</a></h3><br><br>
 <% end %>
 
 

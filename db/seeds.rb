@@ -1,6 +1,6 @@
 #carriers
 
-pulse_logistics = Carrier.create(username: "SJP3358", email: "stevep@pulselogistics.com", password: "pulsefam", company_name: "Pulse Logistics")
+pulse_logistics = Carrier.create(username: "Tyler33568", email: "stevep@pulselogistics.com", password: "pulsefam", company_name: "Pulse Logistics")
 
 saiaa = Carrier.create(username: "SAIAA2232", email: "loadinfo@saiaa.net", password: "weready123z", company_name: "SAIAA")
 
