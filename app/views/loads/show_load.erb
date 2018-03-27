@@ -1,5 +1,30 @@
-<h2>Pallet Count: <%= @load.pallet_count %><br><h2>
-<h2>Weight: <%= @load.weight %><br><h2>
-<h2>Load Description: <%= @load.description %><br><h2>
-<h2>Hazardous Matarials?: <%= @load.haz_mat %><br><h2>
-<h2>Load ID: <%= @load.id %> </h2>
+<table>
+	<caption><h2>Selected Load</h2></caption>
+<thead>
+	<tr>
+<th scope="col">Pallet Count</th>
+<th scope="col">Weight</th>
+<th scope="col">Load Description</th>
+<th scope="col">Hazardous Matarials?</th>
+<th scope="col">Load ID</th>
+</tr>
+ </thead>
+  <tbody>
+    <tr>
+      <td><%= @load.pallet_count %></td>
+      <td><%= @load.weight %></td>
+      <td><%= @load.description %></td>
+      <td><%= @load.haz_mat %></td>
+      <td><%= @load.id %></td>
+    </tr>
+  </tbody>
+</table>
+
+<link rel="stylesheet" type='text/css' href="/table.css">
+<br>
+<form action="/loads/<%= @load.id %>/delete" method="post">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <button style="height:100px;width:100px" type="submit" value="Submit">Delete Load</button>
+</form>
+<br>
+<a href=<%= "/loads/#{@load.id}/edit" %>><button style="height:100px;width:100px">Edit Load</a>
