@@ -2,11 +2,6 @@ class LoadsController < ApplicationController
 
 	get "/loads" do
 		redirect_if_not_logged_in
-		erb :"/loads/index"
-	end
-
-	get "/loads/show" do
-		redirect_if_not_logged_in
 		current_user
 		@carrier = Carrier.all.find(current_user.id)
 		@carrier.loads
@@ -30,5 +25,13 @@ class LoadsController < ApplicationController
 			redirect '/loads'
 		end
 	end
+
+	get '/loads/:id' do
+		redirect_if_not_logged_in 
+		current_user
+		@load = Load.find params['id']
+		erb :"/loads/show_load"
+	end
 end 
+
 
