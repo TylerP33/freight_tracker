@@ -46,6 +46,7 @@ class LoadsController < ApplicationController
 		params[:haz_mat].nil? ? false : true
 		redirect "/loads/#{@load.id}/edit"
 	else
+		@load.carrier_id == current_user.id
 		@load.update(pallet_count: params[:pallet_count], weight: params[:weight], description: params[:description], haz_mat: params[:haz_mat])
 		redirect "/loads/#{@load.id}"
 	end
