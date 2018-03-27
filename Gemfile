@@ -18,6 +18,8 @@ gem "tux"
 gem 'rest-client'
 gem 'json'
 gem "rack-flash3"
+gem "geocoder"
+gem "gmaps4rails"
 
 group :test do
   gem 'rspec'
