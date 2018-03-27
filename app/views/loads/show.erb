@@ -1,11 +1,15 @@
 <h1>Welcome <%= @carrier.username %>, here are your active loads!</h1>
 <br>
+<br>
+<br>
 <% @carrier.loads.each do |load| %>
-<h2>Pallet Count: <%= load.pallet_count %><br></h2>
-<h2>Weight: <%= load.weight %><br></h2>
-<h2>Description: <%= load.description %><br></h2>
-<h2>Hazardous Materials?: <%= load.haz_mat %><br></h2>
+<h3>Pallet Count: <%= load.pallet_count %><br></h3>
+<h3>Weight: <%= load.weight %><br></h3>
+<h3>Description: <%= load.description %><br></h3>
+<h3>Hazardous Materials: <%= load.haz_mat %><br></h3>
 <br>
 <% end %>
+
+
 
 
