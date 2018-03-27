@@ -32,6 +32,7 @@ footer {background: #aaa;color:white;}
     text-decoration: none;
 }
 
+
 @media all and (min-width: 768px) {
     .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
     .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
@@ -40,20 +41,22 @@ footer {background: #aaa;color:white;}
 </style>
 </head>
 <body>
-
 <div class="flex-container">
 <header>
   <h1>Freight Tracking</h1>
 </header>
 
+<div style="text-align:center"><%= yield %></div>
 
 <nav class="nav">
 <ul>
 <% if logged_in? %>
-  <li><a href="/loads">Home Page</a></li><br>
-  <li><a href="/logout">Logout</a></li><br>
+  <li><a href=<%= "/loads" %>><button style="height:25px;width:100px">Load Board</a></li><br>
+  <li><a href=<%= "/loads/new" %>><button style="height:25px;width:100px">New Load</a></li><br>
+    <li><a href=<%= "/routes" %>><button style="height:25px;width:100px">New Route</a></li><br>
+  <li><a href=<%= "/logout" %>><button style="height:25px;width:100px">Logout</a></li><br>
 <% end %>
-  <div style="text-align:center"><%= yield %></div>
+  
 </ul>
 </nav>
 
