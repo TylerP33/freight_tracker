@@ -1,0 +1,11 @@
+h1>Edit Load here</h1>
+<form method="POST" action="/routes/<%= @route.id %>">
+<input type="hidden" id="hidden" name="_method" value="patch">
+Pickup Location: <input type="text" name="pickup_location">
+Destination: <input type="text" name="destination">
+Pickup Date: <input type="text" name="pickup_date">
+Delivery Date: <input type="text" name="delivery_date">
+  <input type="submit" value="Submit">
+</form>
+<br>
+

@@ -1,0 +1,28 @@
+<table>
+	<caption><h2>Selected Load</h2></caption>
+<thead>
+	<tr>
+<th scope="col">Pickup Location</th>
+<th scope="col">Destination</th>
+<th scope="col">Pickup Date</th>
+<th scope="col">Delivery Date</th>
+</tr>
+ </thead>
+  <tbody>
+    <tr>
+      <td><%= @route.pickup_location %></td>
+      <td><%= @route.destination %></td>
+      <td><%= @route.pickup_date %></td>
+      <td><%= @route.delivery_date %></td>
+    </tr>
+  </tbody>
+</table>
+
+<link rel="stylesheet" type='text/css' href="/table.css">
+<br>
+<form action="/routes/<%= @route.id %>/delete" method="post">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <button style="height:100px;width:100px" type="submit" value="Submit">Delete Route</button>
+</form>
+<br>
+<a href=<%= "/routes/#{@route.id}/edit" %>><button style="height:100px;width:100px">Edit Route</a>
