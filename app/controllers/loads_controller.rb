@@ -3,7 +3,7 @@ class LoadsController < ApplicationController
 	get "/loads" do
 		redirect_if_not_logged_in
 		current_user
-		@carrier = Carrier.all.find(current_user.id)
+		@carrier = Carrier.find(current_user.id)
 		@carrier.loads
 		erb :"/loads/show"
 	end
@@ -19,9 +19,8 @@ class LoadsController < ApplicationController
 			params[:haz_mat].nil? ? false : true
 			redirect '/loads/new?error=You must fill in all the blanks'
 		else
-			@new_load = Load.new(pallet_count: params[:pallet_count], weight: params[:weight], description: params[:description], haz_mat: params[:haz_mat], carrier_id: session[:user_id])
-			@new_load.carrier_id = current_user.id
-			@new_load.save
+			current_user
+			@load = current_user.loads.create(pallet_count: params[:pallet_count], weight: params[:weight], description: params[:description], haz_mat: params[:haz_mat])
 			redirect '/loads'
 		end
 	end

@@ -1,4 +1,4 @@
-<h1>Here is your current delivery schedule, <%= @carrier.username %>!</h1>
+<h1>Here is your current delivery schedule, <%= current_user.username %>!</h1>
 <h1><a href="/loads/new"><button type="button">Create new Load here</button></a></h1>
 <br>
 <% @carrier.loads.each do |load| %>
@@ -7,8 +7,13 @@ Pallet Count: <%= load.pallet_count %><br>
 Weight: <%= load.weight %><br>
 Load Description: <%= load.description %><br>
 Hazardous Matarials?: <%= load.haz_mat %><br>
-<%= load.id %>
+Load ID:  <%= load.id %><br>
+Carrier ID: <%= load.carrier_id %><br>
+<br>
+<a href="/routes">Create your route here</a><br><br>
 <% end %>
+
+
 
 
 
