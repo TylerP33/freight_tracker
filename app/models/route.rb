@@ -1,9 +1,13 @@
 class Route < ActiveRecord::Base
 	extend Geocoder::Model::ActiveRecord
-	belongs_to :load
+	has_many :loads
+	has_many :carriers, through: :loads
+
+	validates_presence_of :pickup_location, :destination, :pickup_date, :delivery_date
 
 def address 
-	[city, state].join(', ')
+	[pickup_location].join(', ')
+	[destination].join(', ')
 end
 
   geocoded_by :address
