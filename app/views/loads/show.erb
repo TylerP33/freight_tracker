@@ -2,16 +2,37 @@
 <h1><a href="/loads/new"><button type="button">Create new Load here</button></a></h1>
 <br>
 <% @carrier.loads.each do |load| %>
-<a href=<%= "/loads/#{load.id}" %>><button type="button">Update or Delete</a><br><br>
+<a href=<%= "/loads/#{load.id}" %>><button type="button">Update or Delete Load</a><br><br>
 Pallet Count: <%= load.pallet_count %><br>
 Weight: <%= load.weight %><br>
 Load Description: <%= load.description %><br>
 Hazardous Matarials?: <%= load.haz_mat %><br>
 Load ID:  <%= load.id %><br>
 Carrier ID: <%= load.carrier_id %><br>
-<br>
-<a href="/routes">Create your route here</a><br><br>
+<a href="/routes/new">Add a route to this load</a><br><br>
+
+<% @routes.load.each do |route| %>
+<a href=<%= "/routes/#{route.load_id}" %>><button type="button">Update or Delete Route</a><br><br>
+	Location: <%= route.pickup_location unless route.load_id != load.id %><br>
+	Destination: <%= route.destination unless route.load_id != load.id %><br>
+	Pickup Date: <%= route.pickup_date unless route.load_id != load.id %><br>
+	Delivery Date: <%= route.delivery_date unless route.load_id != load.id %><br>
+	Load ID: <%= route.load_id unless route.load_id != load.id %><br>
+	<br>
+	
 <% end %>
+<br>
+<br>
+<% end %>
+
+
+
+
+
+
+
+
+
 
 
 
