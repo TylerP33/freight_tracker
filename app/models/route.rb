@@ -1,8 +1,7 @@
 class Route < ActiveRecord::Base
-	extend Geocoder::Model::ActiveRecord
-	has_many :loads
-	has_many :carriers, through: :loads
+	belongs_to :load
 
+	extend Geocoder::Model::ActiveRecord
 	validates_presence_of :pickup_location, :destination, :pickup_date, :delivery_date
 
 def address 

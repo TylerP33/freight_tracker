@@ -2,6 +2,10 @@ class Carrier < ActiveRecord::Base
 	has_many :loads
 	
 	has_secure_password
+	
+	validates_presence_of :username, :email, :password
+	validates :username, uniqueness: true
+	#make sure to be freshened up on this for interview
 
 	def slug
 		self.username.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
