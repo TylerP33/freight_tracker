@@ -4,6 +4,16 @@ Pickup Location: <input type="text" name="pickup_location">
 Destination: <input type="text" name="destination">
 Pickup Date: <input type="text" name="pickup_date">
 Delivery Date: <input type="text" name="delivery_date">
-<input type="submit" value="Submit">
+<br>
+<br>
+<label> Which Load does this belong to? </label>
+  <select name="load_id">
+    <% current_user.loads.each do |load| %>
+      <option value=<%= load.id %>><%= load.id %></option>
+    <% end %>
+  </select>
+<input type="submit" value="Add Route">
 </form>
 <br>
+
+  
