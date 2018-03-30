@@ -4,12 +4,8 @@ class CarriersController < ApplicationController
   use Rack::Flash
 
 	get '/signup' do
-        if !logged_in?
-            erb :"carriers/signup"
-        else
-            redirect "/loads"
-        end
-    end
+        erb :"carriers/signup"
+  end
 	
 	post '/signup' do
 		if params[:username].empty? || params[:email].empty? || params[:password].empty?
