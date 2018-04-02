@@ -41,7 +41,7 @@ class RoutesController < ApplicationController
 		if params[:pickup_location].empty? || params[:destination].empty? || params[:pickup_date].empty? || params[:delivery_date].empty?
 			redirect '/routes/new?error=You must fill in all the blanks'
 		else
-			@route = Route.create(params)
+			@route = current_user.routes.create(params)
 			redirect '/loads'
 		end
 	end

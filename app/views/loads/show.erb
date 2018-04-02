@@ -1,31 +1,36 @@
 <h1>Here is your current delivery schedule, <%= current_user.username %>!</h1>
 <h1><a href="/loads/new"><button type="button">Create new Load here</button></a></h1>
 <br>
+<br>
+<h1>Load Table</h1>
 <% @carrier.loads.each do |load| %>
-<a href=<%= "/loads/#{load.id}" %>><button type="button">Update or Delete Load</a><br><br>
+<a href=<%= "/loads/#{load.id}" %>><button type="button">Update or Delete Load</button></a>
+<br><br>
 Pallet Count: <%= load.pallet_count %><br>
 Weight: <%= load.weight %><br>
 Load Description: <%= load.description %><br>
 Hazardous Matarials?: <%= load.haz_mat %><br>
 Load ID:  <%= load.id %><br>
-Carrier ID: <%= load.carrier_id %><br>
-<a href="/routes/new">Add a route to this load</a><br><br>
-<Br>
-<% @routes.load.each do |route| %>
-<a href=<%= "/routes/#{route.id}" %>>Update or Delete Route</a><br><br>
-	Location: <%= route.pickup_location unless route.load_id != load.id %><br>
-	Destination: <%= route.destination unless route.load_id != load.id %><br>
-	Pickup Date: <%= route.pickup_date unless route.load_id != load.id %><br>
-	Delivery Date: <%= route.delivery_date unless route.load_id != load.id %><br>
-	Load ID: <%= route.load_id unless route.load_id != load.id %><br>
-	Route ID: <%= route.id unless route.load_id != load.id %><br>
+Carrier ID: <%= load.carrier_id %><br><br>
+<a href="/routes/new"><button type="button">Add a route to this load</button></a>
+<br>
+<br>
+<br>
+<% end %>
+
+<h1>Route Table</h1>
+<% @carrier.routes.each do |route| %>
+<a href=<%="/routes/#{route.id}"%>><button type="button">Update or Delete Route </button>
+</a><br><br>
+	Location: <%= route.pickup_location  %><br>
+	Destination: <%= route.destination  %><br>
+	Pickup Date: <%= route.pickup_date  %><br>
+	Delivery Date: <%= route.delivery_date  %><br>
+	Load ID: <%= route.load_id  %><br>
+	Route ID: <%= route.id  %><br>
+	Carrier ID: <%= route.carrier_id %><br>
 	<br>
-
 <% end %>
-<br>
-<br>
-<% end %>
-
 
 
 

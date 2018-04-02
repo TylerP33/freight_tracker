@@ -1,5 +1,6 @@
 class Carrier < ActiveRecord::Base
 	has_many :loads
+	has_many :routes
 	
 	has_secure_password
 	

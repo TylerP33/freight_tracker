@@ -4,7 +4,6 @@ class LoadsController < ApplicationController
 		redirect_if_not_logged_in
 		current_user
 		@carrier = Carrier.find(current_user.id)
-		@routes = Route.all
 		erb :"/loads/show"
 	end
 
