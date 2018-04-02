@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402180618) do
+ActiveRecord::Schema.define(version: 20180402183707) do
 
   create_table "carriers", force: :cascade do |t|
     t.string "username"
@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(version: 20180402180618) do
     t.string  "destination"
     t.text    "pickup_date"
     t.text    "delivery_date"
-    t.float   "latitude"
-    t.float   "longitude"
     t.integer "load_id"
     t.integer "carrier_id"
   end
