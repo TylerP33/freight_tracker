@@ -6,17 +6,20 @@
 <% @carrier.loads.each do |load| %>
 <a href=<%= "/loads/#{load.id}" %>><button type="button">Update or Delete Load</button></a>
 <br><br>
+
 Pallet Count: <%= load.pallet_count %><br>
 Weight: <%= load.weight %><br>
 Load Description: <%= load.description %><br>
 Hazardous Matarials?: <%= load.haz_mat %><br>
 Load ID:  <%= load.id %><br>
 Carrier ID: <%= load.carrier_id %><br><br>
+
 <a href="/routes/new"><button type="button">Add a route to this load</button></a>
 <br>
 <br>
 <br>
 <% end %>
+
 
 <h1>Route Table</h1>
 <% @carrier.routes.each do |route| %>

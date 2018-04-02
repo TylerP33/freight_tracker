@@ -43,16 +43,16 @@ class LoadsController < ApplicationController
 		params[:haz_mat].nil? ? false : true
 		redirect "/loads/#{@load.id}/edit"
 	else
-		@load.carrier_id == current_user.id
+		@load.carrier == current_user
 		@load.update(pallet_count: params[:pallet_count], weight: params[:weight], description: params[:description], haz_mat: params[:haz_mat])
-		redirect "/loads/#{@load.id}"
+		redirect "/loads"
 	end
   end
 
   	delete '/loads/:id/delete' do
   		redirect_if_not_logged_in
   		@load = Load.find params['id']
-  		if @load.carrier_id == current_user.id
+  		if @load.carrier == current_user
   			@load.destroy
   			redirect '/loads'
   		else
