@@ -9,7 +9,7 @@ class CarriersController < ApplicationController
 			redirect "/signup"
 	 elsif 
 			@carrier = Carrier.create(username: params[:username], email: params[:email], password: params[:password])
-     		session[:user_id] = @carrier.id
+     	session[:user_id] = @carrier.id
 			redirect "/loads"
 		end
  	end
