@@ -1,43 +1,32 @@
 # FreightTracker
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/freight_tracker`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to your freight_tracker!  This is a Sinatra web application that allows a trucking carrier to post loads and add route information to it accordingly.  When the carrier logs in, they will only see their load board (all their loads and routes).
 
-TODO: Delete this and the text above, and describe your gem
+The carrier will be able to edit the load or the route information, as well delete anything that has been added to the load board.  I wanted this to mock a real life load board, so seeing other carrier's loads was not an option.  With that being said, the ability to see other loads is availiable through some minor changes in the code.  Given the nature of the intedned functionality, I chose to make it private to the carrier.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'freight_tracker'
-```
+Clone this repository.
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Given the intent of the design, no dummy data will be needed.  Just make sure to always go to the home page (/loads, /routes will not work until logged in, naturally.).
 
-    $ gem install freight_tracker
+After that, use shotgun to navigate the web app.
 
-## Usage
+    $ shotgun
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/freight_tracker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/TylerP33/freight_tracker. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This web app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
-Everyone interacting in the FreightTracker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/freight_tracker/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the FreightTracker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/Tylerp33/freight_tracker/blob/master/CODE_OF_CONDUCT.md).
