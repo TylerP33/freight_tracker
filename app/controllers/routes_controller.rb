@@ -18,7 +18,7 @@ class RoutesController < ApplicationController
   			@route.destroy
   			redirect '/loads'
   		else
-  			redirect '/routes/new?error=You are not the carrier of this load!'
+  			redirect '/routes/new?error=You are not the carrier of this route!'
   		end
   	end
 
@@ -26,7 +26,10 @@ class RoutesController < ApplicationController
 		redirect_if_not_logged_in
 		@route = Route.find(params[:id])
 	if 	params[:pickup_location].empty? || params[:destination].empty? || params[:pickup_date].empty? || params[:delivery_date].empty?
-		redirect "/routes/#{@route.id}/edit"
+		redirect "/routes/#{@route.id}/edit?error=You must fill in all the blanks!"
+		if @route.carrier != current_user
+				redirect "/routes/#{@route.id}/edit?error=You are not the carrier of this route!!"
+		end
 	else
 		@route.carrier == current_user
 		@route.update(pickup_location: params[:pickup_location], destination: params[:destination], pickup_date: params[:pickup_date], delivery_date: params[:delivery_date])
@@ -44,7 +47,7 @@ class RoutesController < ApplicationController
   	post "/routes" do
 		redirect_if_not_logged_in
 		if params[:pickup_location].empty? || params[:destination].empty? || params[:pickup_date].empty? || params[:delivery_date].empty?
-			redirect '/routes/new?error=You must fill in all the blanks'
+			redirect '/routes/new?error=You must fill in all the blanks!'
 		else
 			@route = current_user.routes.create(params)
 			redirect '/loads'

@@ -41,7 +41,10 @@ class LoadsController < ApplicationController
 		@load = Load.find params['id']
 	if 	params[:pallet_count].empty? || params[:weight].empty? || params[:description].empty?
 		params[:haz_mat].nil? ? false : true
-		redirect "/loads/#{@load.id}/edit"
+		redirect "/loads/#{@load.id}/edit?error=You must fill in all the blanks!"
+		if @load.carrier != current_user
+				 "/loads/#{@load.id}/edit?error=You are not the carrier of this load!"
+		end
 	else
 		@load.carrier == current_user
 		@load.update(pallet_count: params[:pallet_count], weight: params[:weight], description: params[:description], haz_mat: params[:haz_mat])
@@ -56,7 +59,7 @@ class LoadsController < ApplicationController
   			@load.destroy
   			redirect '/loads'
   		else
-  			redirect '/loads/new?error=Only the carrier can do this!'
+  			redirect '/loads/new?error=You are not the carrier of this load!'
   		end
   	end
 end
