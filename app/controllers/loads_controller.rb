@@ -4,6 +4,8 @@ class LoadsController < ApplicationController
 		redirect_if_not_logged_in
 		current_user
 		@carrier = Carrier.find(current_user.id)
+		@loadss = Load.all
+		@routess = Route.all
 		erb :"/loads/show"
 	end
 
@@ -42,9 +44,8 @@ class LoadsController < ApplicationController
 	if 	params[:pallet_count].empty? || params[:weight].empty? || params[:description].empty?
 		params[:haz_mat].nil? ? false : true
 		redirect "/loads/#{@load.id}/edit?error=You must fill in all the blanks!"
-		if @load.carrier != current_user
-				 "/loads/#{@load.id}/edit?error=You are not the carrier of this load!"
-		end
+	elsif @load.carrier != current_user
+		  redirect '/loads/new?error=You are not the carrier of this load!'
 	else
 		@load.carrier == current_user
 		@load.update(pallet_count: params[:pallet_count], weight: params[:weight], description: params[:description], haz_mat: params[:haz_mat])
