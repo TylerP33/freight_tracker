@@ -1,6 +1,8 @@
 <h1>Here is your current delivery schedule, <%= current_user.username %>!</h1>
 <h1><a href="/loads/new"><button type="button">Create new Load here</button></a></h1>
-<br>
+<div class="row">
+	<div class="column">
+<p>
 <h1>Load Table</h1>
 <% @carrier.loads.each do |load| %>
 <a href=<%= "/loads/#{load.id}" %>><button type="button">Update or Delete Load</button></a>
@@ -18,9 +20,12 @@ Carrier ID: <%= load.carrier_id %><br><br>
 <br>
 <br>
 <% end %>
+</p>
+</div>
 
-
-<h1>Route Table</h1>
+<div class="row">
+	<div class="column">
+<p><h1>Route Table</h1>
 <% @carrier.routes.each do |route| %>
 <a href=<%="/routes/#{route.id}"%>><button type="button">Update or Delete Route </button>
 </a><br><br>
@@ -33,10 +38,10 @@ Carrier ID: <%= load.carrier_id %><br><br>
 	Carrier ID: <%= route.carrier_id %><br>
 	<br>
 <% end %>
+</p>
+</div>
 
-
-
-
+<link rel="stylesheet" type='text/css' href="/loadpage.css">
 
 
 
