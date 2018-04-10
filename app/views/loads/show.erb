@@ -15,6 +15,14 @@ Hazardous Matarials?: <%= load.haz_mat %><br>
 Load ID:  <%= load.id %><br>
 Carrier ID: <%= load.carrier_id %><br><br>
 
+<% if @errors %>
+<div id="errors">
+    <% @errors.each do |e| %>
+       <p><%= e %></p>
+    <% end %>
+</div>
+<% end %>
+
 <a href="/routes/new"><button type="button">Add a route to this load</button></a>
 <br>
 <br>

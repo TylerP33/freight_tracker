@@ -34,7 +34,7 @@ class CarriersController < ApplicationController
 
   	get '/logout' do
     	if !logged_in?
-      		redirect '/login'
+      		redirect '/login?error="You were not logged in!'
     	else
       		session.clear
       		redirect '/'
