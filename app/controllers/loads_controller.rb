@@ -16,6 +16,7 @@ class LoadsController < ApplicationController
 		redirect_if_not_logged_in 
 		if 	params[:pallet_count].empty? || params[:weight].empty? || params[:description].empty?
 			params[:haz_mat].nil? ? false : true
+			#automatically assumes false instead of nil
 			redirect '/loads/new?error=You must fill in all the blanks'
 		else
 			@load = current_user.loads.create(pallet_count: params[:pallet_count], weight: params[:weight], description: params[:description], haz_mat: params[:haz_mat])
@@ -25,20 +26,27 @@ class LoadsController < ApplicationController
 
 	get '/loads/:id' do
 		redirect_if_not_logged_in 
-		current_user
-		@load = Load.find params['id']
-		erb :"/loads/show_load"
+		@load = Load.find(params['id'])
+		if @load.carrier == current_user
+			erb :"/loads/show_load"
+		else
+			redirect '/'
+		end
 	end
 
 	get '/loads/:id/edit' do
 		redirect_if_not_logged_in
-		@load = Load.find params['id']
-		erb :'/loads/edit'
+		@load = Load.find(params['id'])
+		if @load.carrier == current_user
+			erb :"/loads/show_load"
+		else
+			redirect '/'
+		end
 	end 
 
 	patch '/loads/:id' do
 		redirect_if_not_logged_in
-		@load = Load.find params['id']
+		@load = Load.find(params['id'])
 	if 	params[:pallet_count].empty? || params[:weight].empty? || params[:description].empty?
 		params[:haz_mat].nil? ? false : true
 		redirect "/loads/#{@load.id}/edit?error=You must fill in all the blanks!"
@@ -53,7 +61,7 @@ class LoadsController < ApplicationController
 
   	delete '/loads/:id/delete' do
   		redirect_if_not_logged_in
-  		@load = Load.find params['id']
+  		@load = current_user.loads.find params['id']
   		if @load.carrier == current_user
   			@load.destroy
   			redirect '/loads'
